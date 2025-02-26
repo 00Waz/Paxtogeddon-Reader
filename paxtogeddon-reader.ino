@@ -620,7 +620,7 @@ void ParseSwitch2() {
         colour = "Green";
       } else if (dval == 2) {
         colour = "Yellow";
-      } else if (dval = 4) {
+      } else if (dval == 4) {
         colour = "Red";
       }
     }
