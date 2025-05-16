@@ -76,8 +76,8 @@ const byte YELLOW_LED_PIN = 1;    //Adjust as required
 So I made a case for use in the field to house a battery pack, and make sure stuff doesn't get broken
 I used an ESP32C3 Supermini board, as they're awesome and set the pins as below
 
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/1.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/2.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/3.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/4.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/5.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/1.jpg?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/2.jpg?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/3.jpg?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/4.jpg?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/5.jpg?raw=true)
