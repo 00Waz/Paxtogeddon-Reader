@@ -40,7 +40,7 @@ Note I was not the main writer of this code, but Dan couldn't be bothered to put
 
 If anyone wants to draw this a bit nicer be my guest
 
-![Janky Circuit Drawing](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/circuit.png?raw=true)
+![Janky Circuit Drawing](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/circuit.png?raw=true)
 
 ### Notes on flashing
 
@@ -53,9 +53,9 @@ So if you want to/need to do this, theres some simple SPIFFS formatting code tha
 
 A little board setup of the above circuit to make in the field use a little neater.
 
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/Components.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/Jumpers_and_wiring.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/Board.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/Components.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/Jumpers_and_wiring.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/Board.png?raw=true)
 
 Adjust the sourcecode to refelct the new GPIO pin outs for this board:
 
@@ -76,8 +76,8 @@ const byte YELLOW_LED_PIN = 1;    //Adjust as required
 So I made a case for use in the field to house a battery pack, and make sure stuff doesn't get broken
 I used an ESP32C3 Supermini board, as they're awesome and set the pins as below
 
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/1.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/2.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/3.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/4.png?raw=true)
-![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/images/5.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/1.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/2.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/3.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/4.png?raw=true)
+![](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/5.png?raw=true)
