@@ -51,9 +51,9 @@ Nice little hook into a smart watch, so you get live notifications when a read i
 
 Another ESP32 board is needed, as it wont all fit onto to the one now, its getting a bit big and the supermini only has one core.
 
-![Kit layout](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/PR2.png?raw=true)
+![Kit layout](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/PR2.jpg?raw=true)
 
-![Smart Watch](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/PR4.png?raw=true)
+![Smart Watch](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/PR4.jpg?raw=true)
 
 It now hooks into a FitPro M4/M5/M6, super cheap on Amazon :)
 
