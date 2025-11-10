@@ -29,28 +29,16 @@ void ParseCard(void) {
     return;
   }
 
-  if (!CheckBitCount()) {
-    return;
-  }
-
-  if (!CheckLeadin()) {
-    return;
-  }
-
-  if (!CheckLeadout()) {
-    return;
-  }
-
+  if (!CheckBitCount()) { return; }
+  if (!CheckLeadin()) { return; }
+  if (!CheckLeadout()) { return; }
   processingData = true;
-
   if (bitCount == net2Bits) {
     ParseNet2();
   }
-
   if (bitCount == switch2Bits) {
     ParseSwitch2();
   }
-
   bitCount = 0;
   processingData = false;
 }
@@ -386,7 +374,7 @@ static void ParseSwitch2(void) {
     if (i == 55) {
       if (dval != 13) {
         prSettings::lastCardData = "Digit bits error - expected 13 but received " + String(dval);
-        prUtil::OLEDShowMessage("Stop bits error", "Expected", "13", "Received", String(dval), "");
+        prUtil::OLEDShowMessage("Digit bits error", "Expected", "13", "Received", String(dval), "");
         prUtil::LedControl(false, false, true, false);
         return;
       }
@@ -417,7 +405,7 @@ static void ParseSwitch2(void) {
     if (i == 135) {
       if (dval != 13) {
         prSettings::lastCardData = "Digit bits error - expected 13 but received " + String(dval);
-        prUtil::OLEDShowMessage("Stop bits error", "Expected", "13", "Received", String(dval), "");
+        prUtil::OLEDShowMessage("Digit bits error", "Expected", "13", "Received", String(dval), "");
         prUtil::LedControl(false, false, true, false);
         return;
       }

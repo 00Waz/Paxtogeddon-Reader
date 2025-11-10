@@ -45,6 +45,18 @@ You can also send a specific number direct from the web gui if you just want to 
 
 There's a companion app to run on a windows host to make cloning cards easier, as it will send the commands directly from the web gui straight to your proxmark via the proxspace container app set up on Windows ([Proxspace Github](https://github.com/Gator96100/ProxSpace))
 
+#### Smart Watch Notifications
+
+Nice little hook into a smart watch, so you get live notifications when a read is gained, so you know when you can do a happy root dance (while being hidden).
+
+Another ESP32 board is needed, as it wont all fit onto to the one now, its getting a bit big and the supermini only has one core.
+
+![Kit layout](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/PR2.png?raw=true)
+
+![Smart Watch](https://github.com/00Waz/Paxtogeddon-Reader/blob/main/Images/PR4.png?raw=true)
+
+It now hooks into a FitPro M4/M5/M6, super cheap on Amazon :)
+
 ### Other
 
 **"Sounds like Dan did a lot of work here, why is it on your GitHub Waz?" I hear you say...**

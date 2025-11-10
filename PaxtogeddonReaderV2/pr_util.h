@@ -24,6 +24,8 @@ void OLEDShowMessage(String L1, String L2, String L3, String L4, String L5, Stri
 void RequestRebootAndConnectToAP(uint32_t rebootDelay);
 void RequestReboot(uint32_t rebootDelay);
 void CheckReboot(void);
+void RequestTriggerBLEScan(void);
+void CheckTriggerBLEScan(void);
 void LedControl(bool greenLed, bool yellowLed, bool redLed, bool extOut);
 void SendClockData(String binaryData);
 String CalculateBinary(String cardNo);

@@ -3,8 +3,8 @@
 namespace prSettings {
 
 //Product
-const String VERSION_NUMBER = "2.0";
-const String BUILD_DATE = "2025-06-26";
+const String VERSION_NUMBER = "2.1";
+const String BUILD_DATE = "2025-11-02";
 
 //OLED
 const byte SCREEN_WIDTH = 128;     //OLED display width, in pixels

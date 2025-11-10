@@ -78,6 +78,7 @@ String Menu(bool autoRefresh) {
     html += "<a href=\"/exportLog?d=1\">Download Log</a>";
     html += "<a href=\"/exportLog?d=0\">View Raw Log</a>";
     html += "<a href=\"/confirmClearLog\">Clear Log</a><hr>";
+    html += prSettings::EXT_PIN == 255 ? "" : "<a href=\"/triggerBleScan\">Trigger BLE Scan</a><hr>";
     html += "<a href=\"/confirmReboot\">Reboot</a><hr>";
     html += "<a href=\"/viewSettings\">Settings</a>";
     html += "</div></div>";

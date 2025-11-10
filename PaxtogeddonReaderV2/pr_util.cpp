@@ -4,6 +4,7 @@ namespace prUtil {
 
 uint32_t systemRebootDelay = 5000;
 bool systemReboot = false;
+bool systemBLEScan = false;
 Preferences preferences;
 Adafruit_SSD1306 display(prSettings::SCREEN_WIDTH, prSettings::SCREEN_HEIGHT, &Wire, prSettings::OLED_RESET);
 
@@ -201,12 +202,44 @@ void RequestReboot(uint32_t rebootDelay) {
 }
 
 void CheckReboot(void) {
-  if (systemReboot) {
-    systemReboot = false;
-    digitalWrite(prSettings::HEARTBEAT_LED_PIN, 1);
-    delay(systemRebootDelay);
-    ESP.restart();
+  if (!systemReboot) { return; }
+  systemReboot = false;
+  digitalWrite(prSettings::HEARTBEAT_LED_PIN, 1);
+  delay(systemRebootDelay);
+  ESP.restart();
+}
+
+void RequestTriggerBLEScan(void) {
+  if (prSettings::EXT_PIN == 255) { return; }
+  systemBLEScan = true;
+}
+
+void CheckTriggerBLEScan(void) {
+  if (!systemBLEScan) { return; }
+  if (prSettings::EXT_PIN == 255) { return; }
+  systemBLEScan = false;
+  digitalWrite(prSettings::GREEN_LED_PIN, 0);
+  digitalWrite(prSettings::YELLOW_LED_PIN, 0);
+  digitalWrite(prSettings::RED_LED_PIN, 0);
+  digitalWrite(prSettings::EXT_PIN, 1);
+
+  for (int i = 0; i < 12; i++) {
+    delay(500);
+    digitalWrite(prSettings::GREEN_LED_PIN, 1);
+    delay(500);
+    digitalWrite(prSettings::YELLOW_LED_PIN, 1);
+    delay(500);
+    digitalWrite(prSettings::RED_LED_PIN, 1);
+    delay(500);
+    digitalWrite(prSettings::GREEN_LED_PIN, 0);
+    digitalWrite(prSettings::YELLOW_LED_PIN, 0);
+    digitalWrite(prSettings::RED_LED_PIN, 0);
   }
+
+  digitalWrite(prSettings::GREEN_LED_PIN, 1);
+  digitalWrite(prSettings::YELLOW_LED_PIN, 1);
+  digitalWrite(prSettings::RED_LED_PIN, 1);
+  digitalWrite(prSettings::EXT_PIN, 0);
 }
 
 void LedControl(bool greenLed, bool yellowLed, bool redLed, bool extOut) {

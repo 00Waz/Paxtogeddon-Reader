@@ -250,6 +250,13 @@ static void ServerTasks(void* p) {
     request->redirect(baseURL);
   });
 
+  //Trigger BLE Scan (via VibrateBLE firmware on another ESP32)
+  webServer.on("/triggerBleScan", HTTP_GET, [](AsyncWebServerRequest* request) {
+    prSettings::lastCardData = "Trigger BLE Scan command sent";
+    prUtil::RequestTriggerBLEScan();
+    request->redirect(baseURL);
+  });
+
 
   //Shows confirm reboot ESP32 page
   webServer.on("/confirmReboot", HTTP_GET, [](AsyncWebServerRequest* request) {
