@@ -18,6 +18,8 @@ static bool CheckBitCount(void);
 static bool CheckLeadin(void);
 static bool CheckLeadout(void);
 static void ParseNet2(void);
+static void ParseNet2UID(void);
+static void ParseNet2LongRange(void);
 static void ParseSwitch2(void);
 
 }  //namespace prCardReader

@@ -204,6 +204,10 @@ String CardData(bool autoRefresh, int requestedPage, bool showCloneAction) {
       String bin = prUtil::SplitString(cardRows[i], ',', 2);
       String cardType = prUtil::SplitString(cardRows[i], ',', 3);
       String cardColour = prUtil::SplitString(cardRows[i], ',', 4);
+      String p4 = prUtil::SplitString(cardRows[i], ',', 5);
+      String p5 = prUtil::SplitString(cardRows[i], ',', 6);
+      String p6 = prUtil::SplitString(cardRows[i], ',', 7);
+      String p7 = prUtil::SplitString(cardRows[i], ',', 8);
 
       String cardRow = "<tr>";
       cardRow += "<td>" + cardNumber + "</td>";
@@ -214,8 +218,12 @@ String CardData(bool autoRefresh, int requestedPage, bool showCloneAction) {
         cardRow += "<td><div class=\"actions\">";
         cardRow += "<a class=\"action tooltip\" href=\"/replayCard?page=" + String(requestedPage) + "&n=" + cardNumber + "&b=" + bin + "\">";
         cardRow += "🔑<span class=\"tooltiptext\">Replay Card</span></a>";
-        if (showCloneAction && cardType == "Net2") {
-          cardRow += "<a class=\"action tooltip\" href=\"javascript:PostMessage('CLONE_CARD," + cardNumber + "," + cardType + "," + cardColour + "," + bin + "')\">";
+        // if (showCloneAction && cardType == "Net2") {
+        //   cardRow += "<a class=\"action tooltip\" href=\"javascript:PostMessage('CLONE_CARD," + cardNumber + "," + cardType + "," + cardColour + "," + bin + "')\">";
+        //   cardRow += "🔐<span class=\"tooltiptext\">Clone Card</span></a>";
+        // }
+        if (showCloneAction) {
+          cardRow += "<a class=\"action tooltip\" href=\"javascript:PostMessage('CLONE_CARD_PAGES," + cardNumber + "," + p4 + "," + p5 + "," + p6 + "," + p7 + "')\">";
           cardRow += "🔐<span class=\"tooltiptext\">Clone Card</span></a>";
         }
         cardRow += "</div></td>";

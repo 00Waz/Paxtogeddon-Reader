@@ -29,6 +29,7 @@ void CheckTriggerBLEScan(void);
 void LedControl(bool greenLed, bool yellowLed, bool redLed, bool extOut);
 void SendClockData(String binaryData);
 String CalculateBinary(String cardNo);
+String ConvertToHex(unsigned long n);
 String SplitString(String s, char separator, int index);
 bool IsNumeric(String s);
 bool IsIpAddress(String s);

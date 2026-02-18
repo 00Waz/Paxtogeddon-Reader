@@ -3,8 +3,8 @@
 namespace prSettings {
 
 //Product
-const String VERSION_NUMBER = "2.1";
-const String BUILD_DATE = "2025-11-02";
+const String VERSION_NUMBER = "2.3";
+const String BUILD_DATE = "2026-02-18";
 
 //OLED
 const byte SCREEN_WIDTH = 128;     //OLED display width, in pixels
@@ -21,10 +21,17 @@ const String FC_CONNECT_TO_AP = "99999997";  //Reboots the ESP32 and connects to
 const String FC_SHOW_AP_INFO = "99999996";   //Shows AP info on the OLED if the OLED is set as connected
 
 
+
 //PIN Assignments -------------------------------------------------------------------------------------------------------------------------
+
+//!!! SELECT ONLY ONE !!! >>>
+
 //#define GPIO_FIREBEETLE_2_ESP32_E_DEVT  //FireBeetle 2 ESP32-E (Dev Test) [ Dr0pR00t ] [ Daniel Raines                                  ]
 //#define GPIO_ESP32_C3_SUPER_MINI_DIY    //ESP32 C3 Super Mini  (DIY)      [ 00Waz    ] [ https://github.com/00Waz/Paxtogeddon-Reader    ]
 #define GPIO_ESP32_C3_SUPER_MINI_PCB      //ESP32 C3 Super Mini  (PCB)      [ en4rab   ] [ https://github.com/en4rab/Paxtogeddon-OLED-PCB ]
+//-----------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 #ifdef GPIO_FIREBEETLE_2_ESP32_E_DEVT
 const byte HEARTBEAT_LED_PIN = 2;  //[ OUTPUT ] -> Built-in LED

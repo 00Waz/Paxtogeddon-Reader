@@ -4,7 +4,7 @@ namespace prSettings {
 
 //Product
 const String VERSION_NUMBER = "1.0";
-const String BUILD_DATE = "2025-10-18";
+const String BUILD_DATE = "2025-11-02";
 
 //PIN Assignments
 const byte STATUS_LED_PIN = 2;               //[ OUTPUT ] -> Built-in LED

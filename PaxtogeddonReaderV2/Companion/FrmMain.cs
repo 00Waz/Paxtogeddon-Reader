@@ -134,6 +134,32 @@ namespace Companion
                     });
                 }
             }
+
+            if (message.Contains("CLONE_CARD_PAGES,"))
+            {
+                if (!CheckSettings()) { return; }
+                string[] data = message.Split(',');
+                if (data.Length != 6) { return; }
+                string header = data[0];
+                string cardNumber = data[1];
+                CardData pages = new CardData()
+                {
+                    Page0 = "UID",
+                    Page1 = "BDF5E846",
+                    Page2 = "20F04F4E",
+                    Page3 = "06F907C2",
+                    Page4 = data[2],
+                    Page5 = data[3],
+                    Page6 = data[4],
+                    Page7 = data[5]
+                };
+
+                this.InvokeIfRequired(c =>
+                {
+                    FrmWriteCard frmWriteCard = new FrmWriteCard(cardNumber, pages, true, false, true);
+                    frmWriteCard.ShowDialog(this);
+                });
+            }
         }
         #endregion
 

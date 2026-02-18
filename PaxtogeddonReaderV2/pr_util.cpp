@@ -92,6 +92,7 @@ void SPIFFSInit(void) {
   }
 }
 
+
 //Utils
 void HeartBeat(void) {
   digitalWrite(prSettings::HEARTBEAT_LED_PIN, 0);
@@ -347,6 +348,23 @@ String CalculateBinary(String cardNo) {
   binaryOut += c4;
   binaryOut += "0000000000";
   return binaryOut;
+}
+
+String ConvertToHex(unsigned long n) {
+  String ret = "";
+  char buf[8 * sizeof(long) + 1];
+  char *str = &buf[sizeof(buf) - 1];
+  *str = '\0';
+  do {
+    char c = n % 16;
+    n /= 16;
+    *--str = c < 10 ? c + '0' : c + 'A' - 10;
+  } while (n);
+  ret = String(str);
+  if (ret.length() % 2 == 1) {
+    ret = "0" + ret;
+  }
+  return ret;
 }
 
 String SplitString(String s, char separator, int index) {
