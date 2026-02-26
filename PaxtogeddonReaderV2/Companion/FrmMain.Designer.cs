@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.gcWV2 = new Microsoft.Web.WebView2.WinForms.WebView2();
+            this.pb1 = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.gcWV2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.gcWV2.DefaultBackgroundColor = System.Drawing.Color.White;
             this.gcWV2.Location = new System.Drawing.Point(0, 0);
             this.gcWV2.Name = "gcWV2";
-            this.gcWV2.Size = new System.Drawing.Size(1184, 641);
+            this.gcWV2.Size = new System.Drawing.Size(1264, 681);
             this.gcWV2.TabIndex = 3;
             this.gcWV2.ZoomFactor = 1D;
             this.gcWV2.CoreWebView2InitializationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2InitializationCompletedEventArgs>(this.gcWV2_CoreWebView2InitializationCompleted);
@@ -52,12 +53,25 @@
             this.gcWV2.NavigationCompleted += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2NavigationCompletedEventArgs>(this.gcWV2_NavigationCompleted);
             this.gcWV2.WebMessageReceived += new System.EventHandler<Microsoft.Web.WebView2.Core.CoreWebView2WebMessageReceivedEventArgs>(this.gcWV2_WebMessageReceived);
             // 
+            // pb1
+            // 
+            this.pb1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb1.Enabled = false;
+            this.pb1.Location = new System.Drawing.Point(1132, 20);
+            this.pb1.MarqueeAnimationSpeed = 20;
+            this.pb1.Name = "pb1";
+            this.pb1.Size = new System.Drawing.Size(100, 20);
+            this.pb1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
+            this.pb1.TabIndex = 4;
+            this.pb1.Visible = false;
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(13)))), ((int)(((byte)(13)))));
-            this.ClientSize = new System.Drawing.Size(1184, 641);
+            this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.pb1);
             this.Controls.Add(this.gcWV2);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -76,6 +90,7 @@
 
         #endregion
         private Microsoft.Web.WebView2.WinForms.WebView2 gcWV2;
+        private System.Windows.Forms.ProgressBar pb1;
     }
 }
 

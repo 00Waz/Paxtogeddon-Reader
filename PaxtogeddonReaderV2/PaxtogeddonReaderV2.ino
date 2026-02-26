@@ -7,8 +7,8 @@ __________                  __                           .___  .___
                 \/      \/            /_____/      \/     \/    \/           \/ 
 
 Product Name:  Paxtogeddon Reader
-Version:       2.3
-Build Date:    2026-02-18
+Version:       2.4
+Build Date:    2026-02-25
 Author:        Daniel Raines [ Dr0pR00t ]
 
 Credit [ALL]: Moral support + just being an awesome dudes!

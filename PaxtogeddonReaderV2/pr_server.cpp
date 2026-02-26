@@ -156,11 +156,11 @@ static void ServerTasks(void* p) {
 
       if (numOfBits > 0 && numOfDigits > 0) {
         prSettings::replayBin = binaryData;
-        prSettings::lastCardData = "Card Replay<br>";
-        prSettings::lastCardData += "Card number: " + cardNo + "<br>";
+        prSettings::lastCardData = "Replay Clock/Data<br>";
+        prSettings::lastCardData += "Number: " + cardNo + "<br>";
         prSettings::lastCardData += "Bits: " + String(numOfBits) + "<br>";
         prSettings::lastCardData += "Bin: " + binaryData + "<br>";
-        prUtil::OLEDShowMessage(":Card Replay:", cardNo, ":Bits:", String(numOfBits), "", "");
+        prUtil::OLEDShowMessage("Replay Clock/Data", "", ":Number:", cardNo, ":Bits:", String(numOfBits));
       }
     }
 
@@ -198,10 +198,10 @@ static void ServerTasks(void* p) {
 
       if (numOfDigits > 0 && numOfDigits < 9 && prUtil::IsNumeric(cardNo)) {
         prSettings::replayBin = cardNo;
-        prSettings::lastCardData = "Send clock/data<br>";
-        prSettings::lastCardData += "Card number: " + cardNo + "<br>";
+        prSettings::lastCardData = "Send Clock/Data<br>";
+        prSettings::lastCardData += "Number: " + cardNo + "<br>";
         prSettings::lastCardData += "Bits: 75 <br>";
-        prUtil::OLEDShowMessage(":Card Replay:", cardNo, ":Bits:", "75", "", "");
+        prUtil::OLEDShowMessage("Send Clock/Data", "", ":Number:", cardNo, ":Bits:", "75");
       }
     }
     request->redirect(baseURL);
@@ -270,8 +270,13 @@ static void ServerTasks(void* p) {
   //Reboot ESP32
   webServer.on("/rebootESP32", HTTP_GET, [](AsyncWebServerRequest* request) {
     autoRefresh = false;
-    prSettings::lastCardData = "Reboot command sent";
-    prUtil::RequestReboot(5000);
+    if (showCloneAction) {
+      prSettings::lastCardData = "Reboot command sent<br>Device will reconnect to AP";
+      prUtil::RequestRebootAndConnectToAP(5000);
+    } else {
+      prSettings::lastCardData = "Reboot command sent";
+      prUtil::RequestReboot(5000);
+    }
     request->redirect(baseURL);
   });
 
@@ -372,8 +377,13 @@ static void ServerTasks(void* p) {
           }
 
           prUtil::SaveSettings();
-          message = "Settings have been saved<br>Reboot command sent";
-          prUtil::RequestReboot(5000);
+          if (showCloneAction) {
+            message = "Settings have been saved<br>Reboot command sent<br>Device will reconnect to AP";
+            prUtil::RequestRebootAndConnectToAP(5000);
+          } else {
+            message = "Settings have been saved<br>Reboot command sent";
+            prUtil::RequestReboot(5000);
+          }
         }
       }
     }

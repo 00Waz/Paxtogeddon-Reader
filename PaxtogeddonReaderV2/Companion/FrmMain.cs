@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,6 +13,7 @@ namespace Companion
         public FrmMain()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Normal;
         }
 
         #region FrmMain - Load
@@ -83,7 +85,7 @@ namespace Companion
         #endregion
 
         #region Process Message
-        private void ProcessMessage(string message)
+        private async void ProcessMessage(string message)
         {
             if (message == "PAX_VIEW_RAW_LOG")
             {
@@ -160,6 +162,21 @@ namespace Companion
                     frmWriteCard.ShowDialog(this);
                 });
             }
+
+            if (message == "ESP32_REBOOT")
+            {
+                this.InvokeIfRequired(c => { this.Enabled = false; });
+                Thread.Sleep(500);
+                this.InvokeIfRequired(c => { pb1.Visible = true; });
+                Thread.Sleep(12000);
+                await ESP32Connect.Get(Settings.prIpAddress, "/enableCloneAction", 5000);
+                this.InvokeIfRequired(c =>
+                {
+                    this.Enabled = true;
+                    pb1.Visible = false;
+                    gcWV2.Source = new Uri($"http://{Settings.prIpAddress}/?ts={DateTime.Now:HHmmssffffff}");
+                });
+            }
         }
         #endregion
 
@@ -169,7 +186,7 @@ namespace Companion
             CoreWebView2Environment cwv2Environment = await CoreWebView2Environment.CreateAsync(
                 null, Settings.wvTempFolder, new CoreWebView2EnvironmentOptions());
             await gcWV2.EnsureCoreWebView2Async(cwv2Environment);
-            gcWV2.Source = new Uri($"http://{ip}");
+            gcWV2.Source = new Uri($"http://{ip}/?ts={DateTime.Now:HHmmssffffff}");
         }
         #endregion
 
@@ -236,6 +253,16 @@ namespace Companion
                 {
                     e.Cancel = true;
                     Task.Run(() => { ProcessMessage("PAX_VIEW_RAW_LOG"); });
+                }
+
+                if (e.Uri.ToString() == $"http://{Settings.prIpAddress}/rebootESP32")
+                {
+                    Task.Run(() => { ProcessMessage("ESP32_REBOOT"); });
+                }
+
+                if (e.Uri.ToString() == $"http://{Settings.prIpAddress}/saveSettings")
+                {
+                    Task.Run(() => { ProcessMessage("ESP32_REBOOT"); });
                 }
             }
             catch { }

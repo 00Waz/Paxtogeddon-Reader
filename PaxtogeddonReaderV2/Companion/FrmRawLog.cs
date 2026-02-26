@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Windows.Forms;
 
 namespace Companion
@@ -19,7 +20,12 @@ namespace Companion
                 return;
             }
 
-            txtRawLog.Text = response;
+            StringBuilder header = new StringBuilder();
+            header.AppendLine("--------------------------------------------------------------------------");
+            header.AppendLine("Number, Bits, Bin, Type, Colour, Page 4, Page 5, Page 6, Page 7");
+            header.AppendLine("--------------------------------------------------------------------------");
+            header.AppendLine("");
+            txtRawLog.Text = header + response;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

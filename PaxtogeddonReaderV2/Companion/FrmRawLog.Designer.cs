@@ -37,6 +37,9 @@
             // 
             // txtRawLog
             // 
+            this.txtRawLog.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtRawLog.BackColor = System.Drawing.Color.White;
             this.txtRawLog.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtRawLog.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -45,10 +48,11 @@
             this.txtRawLog.Multiline = true;
             this.txtRawLog.Name = "txtRawLog";
             this.txtRawLog.ReadOnly = true;
-            this.txtRawLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtRawLog.Size = new System.Drawing.Size(784, 428);
+            this.txtRawLog.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtRawLog.Size = new System.Drawing.Size(1184, 608);
             this.txtRawLog.TabIndex = 0;
             this.txtRawLog.TabStop = false;
+            this.txtRawLog.WordWrap = false;
             // 
             // tsRawLog
             // 
@@ -68,7 +72,7 @@
             this.tsRawLog.Name = "tsRawLog";
             this.tsRawLog.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.tsRawLog.ShowItemToolTips = false;
-            this.tsRawLog.Size = new System.Drawing.Size(810, 32);
+            this.tsRawLog.Size = new System.Drawing.Size(1610, 32);
             this.tsRawLog.TabIndex = 176;
             this.tsRawLog.Text = "Users Menu";
             // 
@@ -86,18 +90,15 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.ClientSize = new System.Drawing.Size(1184, 641);
             this.Controls.Add(this.tsRawLog);
             this.Controls.Add(this.txtRawLog);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "FrmRawLog";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Raw Log";
             this.Load += new System.EventHandler(this.FrmRawLog_Load);

@@ -42,7 +42,7 @@ String Header(bool autoRefresh, int requestedPage) {
   html += ".settingsName{padding:10px 0 5px}";
   html += "input[type=number],input[type=text]{background-color:#0d0d0d;color:#fff;border:1px solid #2a2a2a;border-radius:5px;height:24px;width:100%;max-width:400px;margin:0 0 10px}";
   html += "input[type=checkbox]{position:relative;left:10px;top:2px;margin:0 0 10px}";
-  html += "@media screen and (max-width:1100px){ .cellSpace{min-width:100px}}";
+  html += "@media screen and (max-width:1100px){ .cellSpace{min-width:105px}}";
   html += "@media screen and (max-width:900px){ .autoHide{display:none} .cellSpace{min-width:50px}}";
   html += "</style><script>";
 
@@ -184,6 +184,7 @@ String CardData(bool autoRefresh, int requestedPage, bool showCloneAction) {
   html += "<th class=\"cellSpace\">Colour</th>";
   html += "<th class=\"cellSpace\">Actions</th>";
   html += "<th class=\"cellSpace autoHide\">Bits</th>";
+  html += "<th class=\"cellSpace autoHide\">Pages 4-7</th>";
   html += "<th class=\"cellSpaceBin autoHide\">Bin</th>";
   html += "</tr></thead><tbody>";
 
@@ -232,13 +233,14 @@ String CardData(bool autoRefresh, int requestedPage, bool showCloneAction) {
       }
 
       cardRow += "<td class=\"autoHide\">" + bits + "</td>";
+      cardRow += "<td class=\"autoHide\">" + p4 + "<br>" + p5 + "<br>" + p6 + "<br>" + p7 + "</td>";
       cardRow += "<td class=\"autoHide\">" + bin + "</td>";
       cardRow += "</tr>";
       html += cardRow;
     }
   } else {
     html += "<tr><td>Log is empty</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td>";
-    html += "<td class=\"autoHide\">&nbsp;</td><td class=\"autoHide\">&nbsp;</td> </tr>";
+    html += "<td class=\"autoHide\">&nbsp;</td><td class=\"autoHide\">&nbsp;</td><td class=\"autoHide\">&nbsp;</td></tr>";
   }
 
   html += "</tbody></table></td></tr></table>";
@@ -253,7 +255,7 @@ String ConfirmMessage(String action, String message) {
   html += "</div></td></tr></table>";
   html += "<table width=\"100%\" border=\"0\" cellspacing=\"5\" cellpadding=\"0\"><tr>";
   html += "<td align=\"left\" valign=\"top\"><div class=\"infoPanel\">";
-  html += "<p>" + message + "</p>";
+  html += "<p><strong>" + message + "</strong></p>";
   html += "</div></td></tr></table>";
   return html;
 }

@@ -383,10 +383,11 @@ static void ParseNet2(void) {
   }
 
   if (!IsFunctionCard(cardNumber)) {
-    prSettings::lastCardData = "Card number: " + cardNumber + "<br>";
-    prSettings::lastCardData += "Card type: " + cardType + "<br>";
-    prSettings::lastCardData += "Card colour: None<br>";
+    prSettings::lastCardData = "Number: " + cardNumber + "<br>";
+    prSettings::lastCardData += "Type: " + cardType + "<br>";
+    prSettings::lastCardData += "Colour: None<br>";
     prSettings::lastCardData += "Bits: " + String(bitCount) + "<br>";
+    prSettings::lastCardData += "Pages: " + p4 + " " + p5 + " " + p6 + " " + p7 + "<br>";
     prSettings::lastCardData += "Bin: " + binary + "<br>";
 
     if (!SaveCardData(cardNumber, String(bitCount), binary, cardType, "None", p4, p5, p6, p7)) {
@@ -395,7 +396,7 @@ static void ParseNet2(void) {
       prUtil::LedControl(false, true, false, false);
       return;
     }
-    prUtil::OLEDShowMessage(":Card Number:", cardNumber, ":Card Type:", cardType, ":Card Colour:", "None");
+    prUtil::OLEDShowMessage(":Number:", cardNumber, ":Type:", cardType, ":Colour:", "None");
     prUtil::LedControl(true, false, false, true);
     return;
   }
@@ -556,10 +557,11 @@ static void ParseNet2UID(void) {
   }
 
   if (!IsFunctionCard(cardNumber)) {
-    prSettings::lastCardData = "Card number: " + cardNumber + "<br>";
-    prSettings::lastCardData += "Card type: " + cardType + "<br>";
-    prSettings::lastCardData += "Card colour: None<br>";
+    prSettings::lastCardData = "Number: " + cardNumber + "<br>";
+    prSettings::lastCardData += "Type: " + cardType + "<br>";
+    prSettings::lastCardData += "Colour: None<br>";
     prSettings::lastCardData += "Bits: " + String(bitCount) + "<br>";
+    prSettings::lastCardData += "Pages: " + p4 + " " + p5 + " " + p6 + " " + p7 + "<br>";
     prSettings::lastCardData += "Bin: " + binary + "<br>";
 
     if (!SaveCardData(cardNumber, String(bitCount), binary, cardType, "None", p4, p5, p6, p7)) {
@@ -568,7 +570,7 @@ static void ParseNet2UID(void) {
       prUtil::LedControl(false, true, false, false);
       return;
     }
-    prUtil::OLEDShowMessage(":Card Number:", cardNumber, ":Card Type:", cardType, ":Card Colour:", "None");
+    prUtil::OLEDShowMessage(":Number:", cardNumber, ":Type:", cardType, ":Colour:", "None");
     prUtil::LedControl(true, false, false, true);
     return;
   }
@@ -734,10 +736,11 @@ static void ParseNet2LongRange(void) {
   }
 
   if (!IsFunctionCard(cardNumber)) {
-    prSettings::lastCardData = "Card number: " + cardNumber + "<br>";
-    prSettings::lastCardData += "Card type: " + cardType + "<br>";
-    prSettings::lastCardData += "Card colour: None<br>";
+    prSettings::lastCardData = "Number: " + cardNumber + "<br>";
+    prSettings::lastCardData += "Type: " + cardType + "<br>";
+    prSettings::lastCardData += "Colour: None<br>";
     prSettings::lastCardData += "Bits: " + String(bitCount) + "<br>";
+    prSettings::lastCardData += "Pages: " + p4 + " " + p5 + " " + p6 + " " + p7 + "<br>";
     prSettings::lastCardData += "Bin: " + binary + "<br>";
 
     if (!SaveCardData(cardNumber, String(bitCount), binary, cardType, "None", p4, p5, p6, p7)) {
@@ -746,7 +749,7 @@ static void ParseNet2LongRange(void) {
       prUtil::LedControl(false, true, false, false);
       return;
     }
-    prUtil::OLEDShowMessage(":Card Number:", cardNumber, ":Card Type:", cardType, ":Card Colour:", "None");
+    prUtil::OLEDShowMessage(":Number:", cardNumber, ":Type:", cardType, ":Colour:", "None");
     prUtil::LedControl(true, false, false, true);
     return;
   }
@@ -985,10 +988,11 @@ static void ParseSwitch2(void) {
   }
 
   if (!IsFunctionCard(cardNumber)) {
-    prSettings::lastCardData = "Card number: " + cardNumber + "<br>";
-    prSettings::lastCardData += "Card type: " + cardType + "<br>";
-    prSettings::lastCardData += "Card colour: " + colour + "<br>";
+    prSettings::lastCardData = "Number: " + cardNumber + "<br>";
+    prSettings::lastCardData += "Type: " + cardType + "<br>";
+    prSettings::lastCardData += "Colour: " + colour + "<br>";
     prSettings::lastCardData += "Bits: " + String(bitCount) + "<br>";
+    prSettings::lastCardData += "Pages: " + p4 + " " + p5 + " " + p6 + " " + p7 + "<br>";
     prSettings::lastCardData += "Bin: " + binary + "<br>";
 
     if (!SaveCardData(cardNumber, String(bitCount), binary, cardType, colour, p4, p5, p6, p7)) {
@@ -997,7 +1001,7 @@ static void ParseSwitch2(void) {
       prUtil::LedControl(false, true, false, false);
       return;
     }
-    prUtil::OLEDShowMessage(":Card Number:", cardNumber, ":Card Type:", cardType, ":Card Colour:", colour);
+    prUtil::OLEDShowMessage(":Number:", cardNumber, ":Type:", cardType, ":Colour:", colour);
     prUtil::LedControl(true, false, false, true);
     return;
   }
